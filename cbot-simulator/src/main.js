@@ -31,7 +31,7 @@ market._wire = (s) => { s.on('tick', (t) => market._onTick(t)); };
 // --- 3d world + player ---
 const canvas = document.getElementById('game');
 const world = new World(canvas, PITS);
-const colliders = world.pits.map((p) => ({ pos: p.worldPos, radius: 7.2 }));
+const colliders = world.pits.map((p) => ({ pos: p.worldPos, radius: 6.8 }));
 const player = new Player(world.camera, colliders);
 world.scene.add(player.group);
 
