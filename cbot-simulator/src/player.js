@@ -16,8 +16,8 @@ export class Player {
     this.vel = new THREE.Vector3();
     this.facing = 0;
     this.yaw = 0;          // camera orbit
-    this.pitch = 0.18;
-    this.dist = 7.5;
+    this.pitch = 0.24;
+    this.dist = 8.5;
     this.speed = 9;
     this.keys = new Set();
     this.run = 0;          // gait phase

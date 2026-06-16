@@ -89,7 +89,7 @@ export function makeDust(count = 900, area = 100, height = 22) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   const mat = new THREE.PointsMaterial({
-    color: 0xfff4d8, size: 0.13, transparent: true, opacity: 0.5,
+    color: 0xbfcad8, size: 0.07, transparent: true, opacity: 0.22,
     depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true,
   });
   const pts = new THREE.Points(geo, mat);
