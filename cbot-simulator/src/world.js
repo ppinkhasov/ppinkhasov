@@ -152,10 +152,10 @@ export class World {
 
   _buildHall() {
     // warm/teal two-tone toon lighting: cool skylight from above, warm bounce
-    const hemi = new THREE.HemisphereLight(TEAL, 0xb88a4a, 0.95);
+    const hemi = new THREE.HemisphereLight(TEAL, 0xc89a5a, 1.35);
     this.scene.add(hemi);
     this.skyLight = hemi;
-    const sun = new THREE.DirectionalLight(0xfff0d8, 1.1);
+    const sun = new THREE.DirectionalLight(0xfff0d8, 1.5);
     sun.position.set(20, 40, 12);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -163,7 +163,7 @@ export class World {
     sun.shadow.camera.left = -70; sun.shadow.camera.right = 70;
     sun.shadow.camera.top = 70; sun.shadow.camera.bottom = -70;
     this.scene.add(sun);
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+    this.scene.add(new THREE.AmbientLight(0xeafaf4, 0.5));
 
     // parquet floor
     const floor = new THREE.Mesh(
@@ -237,9 +237,9 @@ export class World {
 function makeWood() {
   const cv = document.createElement('canvas'); cv.width = cv.height = 256;
   const x = cv.getContext('2d');
-  x.fillStyle = '#7a5630'; x.fillRect(0, 0, 256, 256);
+  x.fillStyle = '#a8794a'; x.fillRect(0, 0, 256, 256);
   for (let i = 0; i < 256; i += 16) {
-    x.fillStyle = i % 32 === 0 ? '#6b4a28' : '#835c34';
+    x.fillStyle = i % 32 === 0 ? '#9a6c3f' : '#b98a55';
     x.fillRect(0, i, 256, 14);
     x.strokeStyle = 'rgba(0,0,0,0.12)'; x.strokeRect(0, i, 256, 14);
   }
