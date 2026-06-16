@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { toon, clamp, lerp, damp } from './util.js';
+import { outlineAll } from './fx.js';
 
 const FLOOR = 52;   // half-extent the player can roam before the walls
 
@@ -15,8 +16,8 @@ export class Player {
     this.vel = new THREE.Vector3();
     this.facing = 0;
     this.yaw = 0;          // camera orbit
-    this.pitch = 0.32;
-    this.dist = 9;
+    this.pitch = 0.18;
+    this.dist = 7.5;
     this.speed = 9;
     this.keys = new Set();
     this.run = 0;          // gait phase
@@ -56,6 +57,7 @@ export class Player {
       const arm = new THREE.Mesh(armGeo, jacket); arm.position.y = -0.24; arm.castShadow = true;
       pivot.add(arm); g.add(pivot); this.limbs.arms.push(pivot);
     }
+    outlineAll(g, 0.028);
     return g;
   }
 
@@ -134,7 +136,7 @@ export class Player {
   _followCam(dt) {
     const tx = this.pos.x - Math.sin(this.yaw) * Math.cos(this.pitch) * this.dist;
     const tz = this.pos.z - Math.cos(this.yaw) * Math.cos(this.pitch) * this.dist;
-    const ty = this.pos.y + 2 + Math.sin(this.pitch) * this.dist;
+    const ty = this.pos.y + 1.4 + Math.sin(this.pitch) * this.dist;
     this.camera.position.x = damp(this.camera.position.x, tx, 8, dt);
     this.camera.position.y = damp(this.camera.position.y, ty, 8, dt);
     this.camera.position.z = damp(this.camera.position.z, tz, 8, dt);
