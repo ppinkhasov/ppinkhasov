@@ -1,0 +1,18 @@
+{
+  "name": "cbot-ibkr-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive Brokers (TWS) tick-by-tick -> WebSocket bridge for the CBOT Open Outcry simulator",
+  "main": "ibkr-bridge.js",
+  "scripts": {
+    "start": "node ibkr-bridge.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@stoqey/ib": "^1.3.18",
+    "ws": "^8.18.0"
+  }
+}
